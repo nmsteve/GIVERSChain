@@ -29,7 +29,7 @@ module.exports = {
   networks: {
     hardhat:{
       forking: {
-        url: process.env.ROPSTEN_URL,
+        url: process.env.GOERLI_URL,
         allowUnlimitedContractSize: true,
         timeout:90000,
         //blockNumber:12325509
@@ -37,23 +37,11 @@ module.exports = {
       
     },
 
-    ropsten: {
-      url: process.env.ROPSTEN_URL,
+    goerli: {
+      url: process.env.GOERLI_URL,
       accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [process.env.PRIVATE_KEY0,process.env.PRIVATE_KEY1,process.env.PRIVATE_KEY2,process.env.PRIVATE_KEY3,process.env.PRIVATE_KEY4,process.env.PRIVATE_KEY5],
       gas:5603244
 
-    },
-    bsctest: {
-      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
-      chainId: 97,
-      gasPrice: 20000000000,
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
-      },
     },
 
    roburna : {
@@ -63,7 +51,6 @@ module.exports = {
       chainId:159
 
     },
-
 
   },
   gasReporter: {
