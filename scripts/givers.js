@@ -7,22 +7,22 @@ const hre = require("hardhat");
 
 async function main() {
 
-  
+
 
   // We get the contract to deploy
   const Givers = await hre.ethers.getContractFactory("GiversChain");
-               
+
 
   const signers = await ethers.getSigners()
 
   const charityWallet = signers[1]
-  const marketingWallet =signers[2]
+  const marketingWallet = signers[2]
 
-  
+
   //We Deploy
-  const givers = await Givers.deploy(charityWallet.address,marketingWallet.address,process.env.ROUTER02);
-              
-  
+  const givers = await Givers.deploy(charityWallet.address, marketingWallet.address, process.env.ROUTER02);
+
+
   //get address deployed to 
   await givers.deployed();
 
@@ -38,4 +38,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-              

@@ -39,6 +39,7 @@ https://bscscan.com/address/0x741f72bc9e29f662f2eb41c5ab450a2ca33be57d#code
 ### .env
 ```
 INFURA_API_KEY=<Infura api key>
+ROUTER02=<address of ROUTER02>
 PRIVATE_KEY_0=<private key of PRIMARY WALLET>
 PRIVATE_KEY_1=<private key of CHARITY WALLET>
 PRIVATE_KEY_2=<private key of MARKETING WALLET>
@@ -56,5 +57,8 @@ npm run test
 npm run deploy:goerli
 ```
 
-## Address
+## Deployments
 
+Address of deployed contract on Goerli.
+
+https://goerli.etherscan.io/address/0x1cf9DcD1f016F463bdc03aA944d64F0c36b69858

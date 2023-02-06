@@ -7,17 +7,17 @@ const hre = require("hardhat");
 
 async function main() {
 
-  
+
 
   // We get the contract to deploy
   const Reward = await hre.ethers.getContractFactory("Reward");
-               
 
-  
+
+
   //We Deploy
   const reward = await Reward.deploy('VAS Rewards', 'VAS', hre.ethers.utils.parseEther('1000000000'));
-              
-  
+
+
   //get address deployed to 
   await reward.deployed();
 
@@ -32,4 +32,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-              
