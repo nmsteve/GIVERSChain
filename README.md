@@ -1,42 +1,60 @@
-# Advanced Sample Hardhat Project
+# Givers-test
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+## Assignment
+Based on this project: https://github.com/nmsteve/GIVERSChain 
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+1. install hardhat
+2. start advanced project
+3. run advanced project test
+4. Change the token variables as stated below.
+5. Write local test for the following token and deploy it on Goerli, Sepolia or any other testnet
 
-Try running some of the following tasks:
+https://bscscan.com/address/0x741f72bc9e29f662f2eb41c5ab450a2ca33be57d#code
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.js
-node scripts/deploy.js
-npx eslint '**/*.js'
-npx eslint '**/*.js' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
+**Token Name** - GIVERSChain
+
+**Symbol** - GIVERS
+
+**Blockchain** - Binance Smart Chain (BSC)
+
+**Total Supply** - 1,000,000,000
+
+### Features:
+
+- 3% fee auto add to the liquidity pool to locked forever when selling
+- 3% fee auto distribute to all holders
+- 3% fee auto moved to charity wallet
+- 1% fee auto moved to burn wallet
+
+### Expected tests:
+
+1. Total supply equal to what you set.
+2. Transfer to wallets that are excluded and not excluded from fee
+3. Make sure adding liquidity works
+4. Check that the fees are sent to appropriate wallets correctly
+5. Make sure swap and liquify works
+
+## Guide
+
+### .env
+```
+INFURA_API_KEY=<Infura api key>
+PRIVATE_KEY_0=<private key of PRIMARY WALLET>
+PRIVATE_KEY_1=<private key of CHARITY WALLET>
+PRIVATE_KEY_2=<private key of MARKETING WALLET>
 ```
 
-# Etherscan verification
+### Script
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
+```bash
+# build
+npm run build
+# test
+npm run test
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
-
-```shell
-hardhat run --network ropsten scripts/deploy.js
+# deploy to goerli (don't forget to set .env)
+npm run deploy:goerli
 ```
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+## Address
 
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```

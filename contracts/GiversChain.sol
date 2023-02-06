@@ -835,12 +835,12 @@ contract GiversChain is Context, IERC20, Ownable {
     string private _symbol = "GIVERS";
     uint8 private _decimals = 18;
     
-    uint256 public _taxFee = 3;
+    uint256 public _taxFee = 2;
     uint256 private _previousTaxFee = _taxFee;
-    
-    uint256 public liquidityFee = 3;   
-    uint256 public marketingFee = 2;
-    uint256 public charityFee   = 1;	
+
+    uint256 public liquidityFee = 3;
+    uint256 public marketingFee = 3;
+    uint256 public charityFee = 3;
 	
     uint256 private _liquidityFee = liquidityFee.add(marketingFee).add(charityFee);
     uint256 private _previousLiquidityFee = _liquidityFee;
