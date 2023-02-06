@@ -824,7 +824,7 @@ contract GiversChain is Context, IERC20, Ownable {
     mapping (address => bool) private _isExcluded;
     address[] private _excluded;
 	
-	address private _burnWalletAddress = 0x000000000000000000000000000000000000dEaD;
+    address private _burnWalletAddress = 0x000000000000000000000000000000000000dEaD;
    
     uint256 private constant MAX = ~uint256(0);
     uint256 private _tTotal = 1000000000 * 10**18;
@@ -839,8 +839,8 @@ contract GiversChain is Context, IERC20, Ownable {
     uint256 private _previousTaxFee = _taxFee;
     
     uint256 public liquidityFee = 3;   
-    uint256 public marketingFee = 2;
-    uint256 public charityFee   = 1;	
+    uint256 public marketingFee = 3;
+    uint256 public charityFee   = 3;
 	
     uint256 private _liquidityFee = liquidityFee.add(marketingFee).add(charityFee);
     uint256 private _previousLiquidityFee = _liquidityFee;
@@ -1227,7 +1227,7 @@ contract GiversChain is Context, IERC20, Ownable {
             _tOwned[address(this)] = _tOwned[address(this)].add(tLiquidity);
     }
 	
-	function _takeBurn(uint256 tBurn) private {
+    function _takeBurn(uint256 tBurn) private {
         uint256 currentRate =  _getRate();
         uint256 rBurn = tBurn.mul(currentRate);
         _rOwned[_burnWalletAddress] = _rOwned[_burnWalletAddress].add(rBurn);
